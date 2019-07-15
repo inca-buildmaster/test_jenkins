@@ -21,8 +21,14 @@ pipeline {
                         echo '*******param is release.*********'
                         def workspace = pwd()
                         echo $workspace
+                        def foo = sh(script: 'pwd', returnStdout: true)
+                        println(foo)
                     } else {
                         echo '*******param is debug.*********'
+                        def workspace = pwd()
+                        echo $workspace
+                        def foo = sh(script: 'pwd', returnStdout: true)
+                        println(foo)
                     }
                 }
             }
