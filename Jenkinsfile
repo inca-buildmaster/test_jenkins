@@ -19,7 +19,10 @@ pipeline {
                    echo "========="
                    if (params.Debug_or_Release == 'release') {
                         echo '*******param is release.*********'
-                        pwd
+                        def workspace = pwd()
+                        def foo = sh(script: 'pwd', returnStdout: true) 
+                        println(foo)
+                        echo $workspace
                     } else {
                         echo '*******param is debug.*********'
                     }
