@@ -24,14 +24,14 @@ pipeline {
                         def foo = sh(script: 'pwd', returnStdout: true)
                         println(foo)
                         println(WORKSPACE)
-                       ./test_simple
+                       sh "./test_simple"
                     } else {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
                         echo $workspace
                         def foo = sh(script: 'pwd', returnStdout: true)
                         println(foo)
-                       ./test_simple
+                       sh "./test_simple"
                     }
                 }
             }
