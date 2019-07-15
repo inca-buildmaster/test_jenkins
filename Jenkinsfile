@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Testing...'
                 sh "./test_simple"
-                sh "echo "${params.Debug_or_Release} !!!!""
+                sh "echo '${params.Debug_or_Release} !!!!'"
             }
         }
         stage('Deploy') {
