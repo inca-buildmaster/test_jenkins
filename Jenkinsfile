@@ -24,7 +24,8 @@ pipeline {
                         def foo = sh(script: 'pwd', returnStdout: true)
                         println(foo)
                         println(WORKSPACE)
-                        sh label: '', script: 'gcc test_simple.c -o test_simple'
+                        sh label: '', script: 'rm test_simple'
+                        /*sh label: '', script: 'gcc test_simple.c -o test_simple'*/
                         sh label: '', script: './test_simple'
                     } else {
                         echo '*******param is debug.*********'
