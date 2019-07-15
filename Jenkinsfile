@@ -19,6 +19,7 @@ pipeline {
                    echo "========="
                    if (params.Debug_or_Release == 'release') {
                         echo '*******param is release.*********'
+                        pwd
                     } else {
                         echo '*******param is debug.*********'
                     }
