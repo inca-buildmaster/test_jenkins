@@ -24,7 +24,10 @@ pipeline {
                         def foo = sh(script: 'pwd', returnStdout: true)
                         println(foo)
                         println(WORKSPACE)
-                       sh label: '', script: './test_simple'
+                        sh label: '', script: '''def workspace = pwd()
+                        println(workspace)
+                        gcc test_simple.c -o test_simple'''
+                        sh label: '', script: './test_simple'
                     } else {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
@@ -32,6 +35,9 @@ pipeline {
                         def foo = sh(script: 'pwd', returnStdout: true)
                         println(foo)
                         println(WORKSPACE)
+                        sh label: '', script: '''def workspace = pwd()
+                        println(workspace)
+                        gcc test_simple.c -o test_simple'''
                         sh label: '', script: './test_simple'
                     }
                 }
