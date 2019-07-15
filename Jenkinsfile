@@ -37,7 +37,7 @@ pipeline {
                         println(foo)
                         println(WORKSPACE)
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
-                        sh label: '', script: './test_simple'
+                        sh label: '', script: 'cp test_simple /media/IncaBuilder/build-fw/wei-dev-4400dvp'
                     }
                 }
             }
