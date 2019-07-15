@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        choice(choices: ['debug', 'release'], description: 'build for debug or release?, name: 'Debug_or_Release')
+        choice(choices: ['debug', 'release'], description: 'build for debug or release?', name: 'Debug_or_Release')
     }
     stages {
         stage('Build') {
