@@ -17,6 +17,11 @@ pipeline {
                 sh "echo '${params.Debug_or_Release} !!!!'"
                 script {
                    echo "========="
+                   if (params.Debug_or_Release == 'release') {
+                        echo '*******param is release.*********'
+                    } else {
+                        echo '*******param is debug.*********'
+                    }
                 }
             }
         }
