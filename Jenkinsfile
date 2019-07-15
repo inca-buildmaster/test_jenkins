@@ -27,6 +27,7 @@ pipeline {
                         sh label: '', script: 'rm test_simple'
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
                         sh label: '', script: './test_simple'
+                        sh label: '', script: 'cp test_simple /tmp'
                     } else {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
