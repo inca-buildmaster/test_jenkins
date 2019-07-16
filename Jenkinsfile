@@ -7,7 +7,7 @@ pipeline {
        stage('clean workspace') {
             steps {
                 sh "ls -al ${env.WORKSPACE}"
-                deleteDir()
+                /*deleteDir()*/
                 sh "ls -al ${env.WORKSPACE}"
             }
         }
