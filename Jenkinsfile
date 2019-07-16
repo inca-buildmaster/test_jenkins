@@ -39,7 +39,7 @@ pipeline {
                         println(foo)
                         println(WORKSPACE)
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
-                        sh label: '', script: 'sudo cp test_simple /media/IncaBuilder/build-fw/jenkins_build'
+                        sh label: '', script: 'scp -i id_rsa_build_master /tmp/test_11 root@192.168.129.196:/tmp'
                     }
                 }
             }
