@@ -3,6 +3,17 @@ pipeline {
     parameters {
         choice(choices: ['debug', 'release'], description: 'build for debug or release?', name: 'Debug_or_Release')
     }
+    stages{
+        stage('clean workspace'){
+            steps{
+                script{
+                    sh "ls -al ${env.WORKSPACE}"
+                    deleteDir()
+                    sh "ls -al ${env.WORKSPACE}"
+                }
+            }
+        }
+    }
     stages {
         stage('Build') {
             steps {
