@@ -6,11 +6,9 @@ pipeline {
     stages {
        stage('clean workspace') {
             steps {
-                script{
-                    sh "ls -al ${env.WORKSPACE}"
-                    deleteDir()
-                    sh "ls -al ${env.WORKSPACE}"
-                }
+                sh "ls -al ${env.WORKSPACE}"
+                deleteDir()
+                sh "ls -al ${env.WORKSPACE}"
             }
         }
         stage('Build') {
