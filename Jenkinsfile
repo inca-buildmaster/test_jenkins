@@ -19,6 +19,7 @@ pipeline {
             }
         }
         stage('Test') {
+            echo '${branch}'
             when { branch 'master' }
             steps {
                 echo 'Testing...'
