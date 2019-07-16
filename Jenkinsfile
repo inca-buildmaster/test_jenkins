@@ -59,8 +59,7 @@ pipeline {
     }
     post {
         always {
-            def workspace = pwd()
-            println(workspace)
+            echo "${env.WORKSPACE}"
         }
         success {
             echo 'Build is succeeeded!'
