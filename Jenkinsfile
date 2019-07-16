@@ -57,4 +57,24 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'One way or another, I have finished'
+        }
+        success {
+            hipchatSend(color: 'GREEN',
+            message: '----SUCCESS----')
+        }
+        unstable {
+            hipchatSend(color: 'RED',
+            message: '----SUCCESS----')
+        }
+        failure {
+            hipchatSend(color: 'RED',
+            message: '----FAILED----')
+        }
+        changed {
+            echo 'Things were different before...'
+        }
+    }
 }
