@@ -59,7 +59,7 @@ pipeline {
     }
     post {
         always {
-            echo '${env.WORKSPACE}'
+            echo ${env.WORKSPACE}
         }
         success {
             echo 'Build is succeeeded!'
@@ -69,10 +69,6 @@ pipeline {
         }
         failure {
             echo 'Build is failed'
-        }
-        cleanup {
-            echo 'No condition matched, have to clean up workspace'
-            deleteDir()
         }
     }
 }
