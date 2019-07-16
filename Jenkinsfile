@@ -59,22 +59,20 @@ pipeline {
     }
     post {
         always {
-            echo 'One way or another, I have finished'
+            /*keep here for furtual usage*/
         }
         success {
-            hipchatSend(color: 'GREEN',
-            message: '----SUCCESS----')
+            echo 'Build is succeeeded!'
         }
         unstable {
-            hipchatSend(color: 'RED',
-            message: '----SUCCESS----')
+            echo 'Build is unstable'
         }
         failure {
-            hipchatSend(color: 'RED',
-            message: '----FAILED----')
+            echo 'Build is failed'
         }
-        changed {
-            echo 'Things were different before...'
+        cleanup {
+            echo 'No condition matched, have to clean up workspace'
+            deleteDir()
         }
     }
 }
