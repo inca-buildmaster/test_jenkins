@@ -3,8 +3,8 @@ pipeline {
     parameters {
         choice(choices: ['debug', 'release'], description: 'build for debug or release?', name: 'Debug_or_Release')
     }
-    stages{
-        stage('clean workspace') {
+    stages {
+       stage('clean workspace') {
             steps {
                 script{
                     sh "ls -al ${env.WORKSPACE}"
@@ -13,8 +13,6 @@ pipeline {
                 }
             }
         }
-    }
-    stages {
         stage('Build') {
             steps {
                 echo 'Building..'
