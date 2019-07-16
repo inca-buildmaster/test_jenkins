@@ -19,7 +19,11 @@ pipeline {
             }
         }
         stage('Test') {
-            echo '${branch}'
+                GIT_BRANCH_LOCAL = sh (
+        script: "echo $Branch | sed -e 's|origin/||g'",
+        returnStdout: true
+    ).trim()
+    echo "Git branch: ${GIT_BRANCH_LOCAL}"
             when { branch 'master' }
             steps {
                 echo 'Testing...'
