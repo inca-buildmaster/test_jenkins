@@ -24,7 +24,6 @@ pipeline {
         returnStdout: true
     ).trim()
     echo "Git branch: ${GIT_BRANCH_LOCAL}"
-            when { branch 'master' }
             steps {
                 echo 'Testing...'
                 sh "./test_simple"
