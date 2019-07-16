@@ -39,7 +39,7 @@ pipeline {
                         println(foo)
                         println(WORKSPACE)
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
-                        sh label: '', script: 'scp -i id_rsa_build_master /tmp/test_11 root@192.168.129.196:/tmp'
+                        sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master /tmp/test_11 root@192.168.129.196:/tmp'
                     }
                 }
             }
