@@ -19,7 +19,7 @@ pipeline {
             }
         }
         stage('Test') {
-            /*when { anyOf { branch 'master'; branch 'change_docker_version' } }*/
+            when { branch 'master' }
             steps {
                 echo 'Testing...'
                 sh "./test_simple"
