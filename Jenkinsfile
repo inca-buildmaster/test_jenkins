@@ -30,6 +30,7 @@ pipeline {
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
                         sh label: '', script: './test_simple'
                         sh label: '', script: 'sudo cp test_simple /home'
+                        sh label: '', script: 'scp test_simple root@192.168.129.196:/tmp'
                     } else {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
