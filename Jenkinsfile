@@ -59,7 +59,7 @@ pipeline {
     }
     post {
         always {
-            /*keep here for furtual usage*/
+            echo '${env.WORKSPACE}'
         }
         success {
             echo 'Build is succeeeded!'
