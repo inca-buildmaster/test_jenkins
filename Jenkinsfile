@@ -31,6 +31,8 @@ pipeline {
                    echo "=========$Chassis_ip_address========="
     def date = new Date()
     println date
+                            def now = new Date()
+        println now.format("yyyyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
