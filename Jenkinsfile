@@ -46,7 +46,7 @@ pipeline {
                         println(foo)
                         println(WORKSPACE)
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
-                        sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@Chassis_ip_address:/tmp'
+                        sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@$Chassis_ip_address:/tmp'
                     }
                 }
                 echo 'deleting...'
