@@ -82,10 +82,10 @@ pipeline {
 			  echo '==aaaaaaaa==empty chassis ip====='
 		       }
 			if ("".equals(Chassis_ip_address)) {
-			  echo '==bbbbbbbb==empty chassis ip====='
+			  echo '==euqal empty==empty chassis ip====='
 		       }
-			if ("null".equals(Chassis_ip_address)) {
-			  echo '==ccccccc==empty chassis ip====='
+			if (!"".equals(Chassis_ip_address)) {
+			  echo '== no equal empty chassis ip====='
 		       }
                     }
                 }
