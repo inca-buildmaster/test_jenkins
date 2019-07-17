@@ -29,6 +29,8 @@ pipeline {
                 script {
                    echo "=========$Binary_image_build_option=========="
                    echo "=========$Chassis_ip_address========="
+                   def flavor = flavor(env.BRANCH_NAME)
+                   echo "Building flavor ${flavor}"
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
