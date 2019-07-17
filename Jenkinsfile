@@ -15,7 +15,6 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo 'Pulling... ' + env.GIT_BRANCH
-                echo '===' + env.BRANCH_NAME
                 echo '===' + env.BUILD_TAG
                 sh "gcc test_simple.c -o test_simple"
             }
