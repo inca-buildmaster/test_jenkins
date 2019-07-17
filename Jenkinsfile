@@ -80,10 +80,10 @@ pipeline {
                        }
 		       def test111 = ""
 			   test111 = Chassis_ip_address
-		       if((test111 != "don't send cpio to chassis")||(test111 == null)||(test111 == "")){
+		       if((Chassis_ip_address != "don't send cpio to chassis")||(Chassis_ip_address == null)||(Chassis_ip_address == "")){
 			  echo '==22==empty chassis ip====='
 		       }
-		       if (test111 == null || "".equals(test111) || "null".equals(test111)) {
+		       if (Chassis_ip_address == null || "".equals(Chassis_ip_address) || "null".equals(Chassis_ip_address)) {
 			  echo '==333==empty chassis ip====='
 		       }
                     }
