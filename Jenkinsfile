@@ -32,7 +32,7 @@ pipeline {
     def date = new Date()
     println date
                             def now = new Date()
-        println now.format("yyyyMMdd.HHmm", TimeZone.getTimeZone(current_setting('TimeZone')))
+        println now.format("yyyyMMdd.HHmm")
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
