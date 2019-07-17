@@ -15,7 +15,6 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo 'Pulling... ' + env.GIT_BRANCH
-                echo '===' + env.BUILD_TAG
                 sh "gcc test_simple.c -o test_simple"
             }
         }
@@ -24,13 +23,10 @@ pipeline {
                 echo 'Testing...'
                 sh "./test_simple"
                 sh "echo '${params.Debug_or_Release} !!!!'"
-                echo env.BUILD_NUMBER
-                echo env.BUILD_ID
                 script {
                    echo "=========$Binary_image_build_option=========="
                    echo "=========$Chassis_ip_address========="
-                   def now = new Date()
-                   println now.format("yyyyMMdd.HHmm")
+
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
@@ -45,6 +41,12 @@ pipeline {
                         sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@192.168.129.196:/tmp'
                         echo 'build_number is' + env.BUILD_NUMBER
                         echo 'build_id is' + env.BUILD_ID
+                        echo 'build tag is:' + env.BUILD_TAG
+                        echo 'git branch is:' + env.GIT_BRANCH
+                        def now = new Date()
+                        println now.format("yyyyMMdd.HHmm")
+                        def time_stamp = now.format("yyyyMMdd.HHmm")
+                        println time_stamp
                     } else if (Binary_image_build_option == 'development') {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
@@ -58,8 +60,6 @@ pipeline {
                        } else {
                            echo "don't send cpio to chassis"
                        }
-                        echo 'build_number is' + env.BUILD_NUMBER
-                        echo 'build_id is' + env.BUILD_ID
                     }
                 }
                 echo 'deleting...'
