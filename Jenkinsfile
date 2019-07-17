@@ -31,7 +31,15 @@ pipeline {
                 script {
                    echo "=========$Binary_image_build_option=========="
                    echo "=========$Chassis_ip_address========="
-
+                   echo "${currentBuild.buildCauses}"
+		   def isStartedByUser = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null
+		   if(isStartedByUser){
+		      echo "+++triggerd by user"	
+		   }
+		   else{
+		      echo "+++triggerd automatically"	
+		   }
+				
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
