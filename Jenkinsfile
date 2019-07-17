@@ -78,8 +78,6 @@ pipeline {
                        } else {
                            echo "don't send cpio to chassis"
                        }
-		       test111 = ""
-		       test111= Chassis_ip_address
 		       if((test111 != "don't send cpio to chassis")||(test111 == null)||(test111 == "")){
 			  echo '==22==empty chassis ip====='
 		       }
