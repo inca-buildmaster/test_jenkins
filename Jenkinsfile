@@ -74,7 +74,7 @@ pipeline {
                         println(WORKSPACE)
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
                        if(Chassis_ip_address != "don't send cpio to chassis") {
-                           sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@$Chassis_ip_address:/tmp'
+                           /*sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@$Chassis_ip_address:/tmp'*/
                        } else {
                            echo "don't send cpio to chassis"
                        }
