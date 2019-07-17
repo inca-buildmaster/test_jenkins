@@ -81,10 +81,10 @@ pipeline {
 		       def test111 = ""
 			   test111 = Chassis_ip_address
 		       if((Chassis_ip_address != "don't send cpio to chassis")||(Chassis_ip_address == null)||(Chassis_ip_address == "")){
-			  echo '==22==empty chassis ip====='
+			  echo '==2222==empty chassis ip====='
 		       }
 		       if (Chassis_ip_address == null || "".equals(Chassis_ip_address) || "null".equals(Chassis_ip_address)) {
-			  echo '==333==empty chassis ip====='
+			  echo '==3333==empty chassis ip====='
 		       }
                     }
                 }
