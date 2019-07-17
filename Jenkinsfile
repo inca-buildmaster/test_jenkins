@@ -73,6 +73,9 @@ pipeline {
 		       if((Chassis_ip_address != "don't send cpio to chassis")||(Chassis_ip_address == null)){
 			  echo '==22==empty chassis ip====='
 		       }
+		       if (Chassis_ip_address == null || "".equals(Chassis_ip_address) || "null".equals(Chassis_ip_address)) {
+			  echo '==333==empty chassis ip====='
+		       }
                     }
                 }
                 echo 'deleting...'
