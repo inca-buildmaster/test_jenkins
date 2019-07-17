@@ -23,9 +23,8 @@ pipeline {
                 echo 'Testing...'
                 sh "./test_simple"
                 sh "echo '${params.Debug_or_Release} !!!!'"
-                echo '${env.BUILD_NUMBER}'
-                echo '${env.BUILD_ID}'
-                echo '${BUILD_NUMBER}'
+                echo env.BUILD_NUMBER
+                echo env.BUILD_ID}
                 script {
                    echo "=========$Binary_image_build_option=========="
                    echo "=========$Chassis_ip_address========="
