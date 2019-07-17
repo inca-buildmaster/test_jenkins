@@ -28,8 +28,6 @@ pipeline {
                 script {
                    echo "=========$Binary_image_build_option=========="
                    echo "=========$Chassis_ip_address========="
-                   def flavor = flavor(env.BRANCH_NAME)
-                   echo "Building flavor ${flavor}"
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
@@ -42,8 +40,8 @@ pipeline {
                         sh label: '', script: './test_simple'
                         sh label: '', script: 'sudo cp test_simple /home'
                         sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@192.168.129.196:/tmp'
-                        echo '${env.BUILD_NUMBER}'
-                        echo '${env.BUILD_ID}'
+                        echo 'build_number is' + env.BUILD_NUMBER
+                        echo 'build_id is' + env.BUILD_ID
                     } else if (Binary_image_build_option == 'development') {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
@@ -57,8 +55,8 @@ pipeline {
                        } else {
                            echo "don't send cpio to chassis"
                        }
-                       echo '${env.BUILD_NUMBER}'
-                       echo '${env.BUILD_ID}'
+                        echo 'build_number is' + env.BUILD_NUMBER
+                        echo 'build_id is' + env.BUILD_ID
                     }
                 }
                 echo 'deleting...'
