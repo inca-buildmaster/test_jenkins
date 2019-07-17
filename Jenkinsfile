@@ -79,13 +79,13 @@ pipeline {
                            echo "don't send cpio to chassis"
                        }
 		       if (Chassis_ip_address == null) {
-			  echo '==aaaaaa==empty chassis ip====='
+			  echo '==aaaaaaaa==empty chassis ip====='
 		       }
-			if ("".equals(Chassis_ip_address) {
-			  echo '==bbbbbb==empty chassis ip====='
+			if ("".equals(Chassis_ip_address)) {
+			  echo '==bbbbbbbb==empty chassis ip====='
 		       }
-			if ("null".equals(Chassis_ip_address) {
-			  echo '==ccccc==empty chassis ip====='
+			if ("null".equals(Chassis_ip_address)) {
+			  echo '==ccccccc==empty chassis ip====='
 		       }
                     }
                 }
