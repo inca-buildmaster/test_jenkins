@@ -83,7 +83,7 @@ pipeline {
 		       if(Chassis_ip_address == null){
 			  echo '==2222==empty chassis ip====='
 		       }
-		       if (Chassis_ip_address == null /*|| "".equals(Chassis_ip_address) || "null".equals(Chassis_ip_address)*/) {
+		       if (Chassis_ip_address == null || "".equals(Chassis_ip_address) || "null".equals(Chassis_ip_address)) {
 			  echo '==3333==empty chassis ip====='
 		       }
                     }
