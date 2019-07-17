@@ -29,10 +29,8 @@ pipeline {
                 script {
                    echo "=========$Binary_image_build_option=========="
                    echo "=========$Chassis_ip_address========="
-    def date = new Date()
-    println date
-                            def now = new Date()
-        println now.format("yyyyMMdd.HHmm")
+                   def now = new Date()
+                   println now.format("yyyyMMdd.HHmm")
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
