@@ -49,7 +49,7 @@ pipeline {
                     }
                 }
                 echo 'deleting...'
-                sh "sudo rm -rf ${env.WORKSPACE}"
+                sh "sudo rm -rf *"
             }
         }
         stage('Deploy') {
