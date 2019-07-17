@@ -45,10 +45,9 @@ pipeline {
                         echo 'git branch is:' + env.GIT_BRANCH
                         def now = new Date()
                         println now.format("yyyyMMdd.HHmm")
-                        def time_stamp = now.format("yyyyMMdd.HHmm")
+                        def time_stamp = now.format("yyyyMMdd.HHmm").string()
                         println time_stamp
-                        test11 = echo '$time_stamp'
-                       sh label: '', script: 'cp test_simple test_simple."$BUILD_TAG"."$test11"'
+                       sh label: '', script: 'cp test_simple test_simple."$BUILD_TAG"'
                     } else if (Binary_image_build_option == 'development') {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
