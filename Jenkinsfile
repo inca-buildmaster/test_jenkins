@@ -25,6 +25,7 @@ pipeline {
                 sh "echo '${params.Debug_or_Release} !!!!'"
                 script {
                    echo "=========$Binary_image_build_option=========="
+                    echo "=========$choose chassis ip address=========="
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
                         def workspace = pwd()
