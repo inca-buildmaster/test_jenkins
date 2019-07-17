@@ -53,7 +53,10 @@ pipeline {
                         def time_stamp = now.format("yyyyMMdd.HHmm")
                         def test11 = time_stamp.toString()
                         echo test11
-                       sh label: '', script: 'cp test_simple test_simple."$BUILD_TAG"'
+                        sh label: '', script: 'cp test_simple test_simple."$BUILD_TAG"'
+			if((Chassis_ip_address != "don't send cpio to chassis")||(Chassis_ip_address != "")){
+			  echo '==11==empty chassis ip====='
+			}
                     } else if (Binary_image_build_option == 'development') {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
@@ -67,6 +70,9 @@ pipeline {
                        } else {
                            echo "don't send cpio to chassis"
                        }
+		       if((Chassis_ip_address != "don't send cpio to chassis")||(Chassis_ip_address != "")){
+			  echo '==22==empty chassis ip====='
+		       }
                     }
                 }
                 echo 'deleting...'
