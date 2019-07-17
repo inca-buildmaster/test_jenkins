@@ -85,7 +85,7 @@ pipeline {
 			  echo '==bbb==empty chassis ip====='
 		       }
 			if ("null".equals(Chassis_ip_address) {
-			  echo '==ccc==empty chassis ip====='
+			  echo '==ccccc==empty chassis ip====='
 		       }
                     }
                 }
