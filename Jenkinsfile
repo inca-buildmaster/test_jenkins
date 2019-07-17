@@ -31,14 +31,14 @@ pipeline {
                 script {
                    echo "=========$Binary_image_build_option=========="
                    echo "=========$Chassis_ip_address========="
-                   echo "${currentBuild.buildCauses}"
-		   def isStartedByUser = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null
-		   if(isStartedByUser){
-		      echo "+++triggerd by user"	
-		   }
-		   else{
-		      echo "+++triggerd automatically"	
-		   }
+                   /*echo "${currentBuild.buildCauses}"*/
+		   /*def isStartedByUser = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null*/
+			// started by commit
+			currentBuild.getBuildCauses('jenkins.branch.BranchEventCause')
+			// started by timer
+			currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause')
+			// started by user
+			currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
 				
                    if (Binary_image_build_option == 'release') {
                         echo '*******param is release.*********'
@@ -78,10 +78,12 @@ pipeline {
                        } else {
                            echo "don't send cpio to chassis"
                        }
-		       if((Chassis_ip_address != "don't send cpio to chassis")||(Chassis_ip_address == null)){
+		       test111 = ""
+		       test111= Chassis_ip_address
+		       if((test111 != "don't send cpio to chassis")||(test111 == null)||(test111 == "")){
 			  echo '==22==empty chassis ip====='
 		       }
-		       if (Chassis_ip_address == null || "".equals(Chassis_ip_address) || "null".equals(Chassis_ip_address)) {
+		       if (test111 == null || "".equals(test111) || "null".equals(test111)) {
 			  echo '==333==empty chassis ip====='
 		       }
                     }
