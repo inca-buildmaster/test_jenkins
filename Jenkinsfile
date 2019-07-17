@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "echo 'Pulling... ' + env.GIT_BRANCH"
+                echo 'Pulling... ' + env.GIT_BRANCH
                 sh "gcc test_simple.c -o test_simple"
             }
         }
