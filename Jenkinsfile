@@ -48,6 +48,7 @@ pipeline {
                         sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@192.168.129.196:/tmp'
                     }
                 }
+                sh "sudo rm -rf ${env.WORKSPACE}"
             }
         }
         stage('Deploy') {
@@ -59,7 +60,6 @@ pipeline {
     post {
         always {
             echo "${env.WORKSPACE}"
-            sh "sudo rm -rf ${env.WORKSPACE}"
         }
         success {
             echo 'Build is succeeeded!'
