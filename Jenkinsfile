@@ -37,7 +37,7 @@ pipeline {
                         sh label: '', script: './test_simple'
                         sh label: '', script: 'sudo cp test_simple /home'
                         sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@192.168.129.196:/tmp'
-                    } else if (Binary_image_build_option == 'developement') {
+                    } else if (Binary_image_build_option == 'development') {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
                         println(workspace)
