@@ -48,6 +48,7 @@ pipeline {
                         sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@192.168.129.196:/tmp'
                     }
                 }
+                echo 'deleting...'
                 sh "sudo rm -rf ${env.WORKSPACE}"
             }
         }
