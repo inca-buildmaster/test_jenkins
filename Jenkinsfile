@@ -73,15 +73,13 @@ pipeline {
                         println(foo)
                         println(WORKSPACE)
                         sh label: '', script: 'gcc test_simple.c -o test_simple'
-                       if(Chassis_ip_address != "don't send cpio to chassis") {
+                       if((Chassis_ip_address != "don't send cpio to chassis") && (!"".equals(Chassis_ip_address))){
                            /*sh label: '', script: 'scp -i ~/.ssh/id_rsa_build_master test_simple root@$Chassis_ip_address:/tmp'*/
                        } else {
                            echo "don't send cpio to chassis"
                        }
-		       if (Chassis_ip_address == null) {
-			  echo '==aaaaaaaa==empty chassis ip====='
-		       }
-			if ("".equals(Chassis_ip_address)) {
+			   
+		       if ("".equals(Chassis_ip_address)) {
 			  echo '==euqal empty==empty chassis ip====='
 		       }
 			if (!"".equals(Chassis_ip_address)) {
