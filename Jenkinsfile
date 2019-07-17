@@ -59,7 +59,7 @@ pipeline {
     post {
         always {
             echo "${env.WORKSPACE}"
-            sh 'sudo rm -rf ${env.WORKSPACE}'
+            sudo rm -rf ${env.WORKSPACE}
         }
         success {
             echo 'Build is succeeeded!'
