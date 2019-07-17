@@ -81,7 +81,7 @@ pipeline {
 		       if (Chassis_ip_address == null) {
 			  echo '==aaa==empty chassis ip====='
 		       }
-			if ("".equals(Chassis_ip_address) ) {
+			if ("".equals(Chassis_ip_address) {
 			  echo '==bbb==empty chassis ip====='
 		       }
 			if ("null".equals(Chassis_ip_address) {
