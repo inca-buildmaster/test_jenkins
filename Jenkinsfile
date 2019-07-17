@@ -47,7 +47,7 @@ pipeline {
                         println now.format("yyyyMMdd.HHmm")
                         def time_stamp = now.format("yyyyMMdd.HHmm")
                         println time_stamp
-                        cp test_simple test_simple$env.BUILD_TAG$time_stamp
+                        sh label: '', script: 'cp test_simple test_simple$env.BUILD_TAG$time_stamp'
                     } else if (Binary_image_build_option == 'development') {
                         echo '*******param is debug.*********'
                         def workspace = pwd()
