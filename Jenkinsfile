@@ -53,7 +53,7 @@ pipeline {
                        } else {
                            echo "don't send cpio to chassis"
                        }
-                        echo '$env.BUILD_NUMBER
+                        echo '$env.BUILD_NUMBER'
                         echo '$BUILD_ID'
                     }
                 }
