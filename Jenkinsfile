@@ -47,7 +47,7 @@ pipeline {
                         println now.format("yyyyMMdd.HHmm")
                         def time_stamp = now.format("yyyyMMdd.HHmm")
                         println time_stamp
-                        test11 = echo 'println time_stamp'
+                        test11 = echo '$time_stamp'
                        sh label: '', script: 'cp test_simple test_simple."$BUILD_TAG"."$test11"'
                     } else if (Binary_image_build_option == 'development') {
                         echo '*******param is debug.*********'
