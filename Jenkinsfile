@@ -18,9 +18,9 @@ pipeline {
                 sh "gcc test_simple.c -o test_simple"
                 sh "echo Testing...."
 		        sh "echo 'build_number is' + env.BUILD_NUMBER"
-                echo 'build_id is' + env.BUILD_ID
-                echo 'build tag is:' + env.BUILD_TAG
-                echo 'git branch is:' + env.GIT_BRANCH
+                echo 'build_id is: ' + env.BUILD_ID
+                echo 'build tag is: ' + env.BUILD_TAG
+                echo 'git branch is: ' + env.GIT_BRANCH
             }
         }
         stage('Test') {
